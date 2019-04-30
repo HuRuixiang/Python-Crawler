@@ -36,6 +36,5 @@ picurl_list = get_picurl(url,r'(https?|ftp|file)://[-A-Za-z0-9+&@#/%=~_|!:,.;]+[
 for each_picurl in picurl_list:
     #循环打印每张图片url
     print(each_picurl)
-    #使用时请将路径替换为本地路径
     download_pic(each_picurl,path)
         
