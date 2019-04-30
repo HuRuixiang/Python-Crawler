@@ -27,14 +27,15 @@ def download_pic(pic_url,root):
                     f.write(rp.content)
     except:
             print("下载异常")
-            
-#调用函数
-#使用时请将url替换为自己所爬取网站的url
+       
+#使用时填上自己的url和下载路径path即可
+url = ""
+path = ""
 #该正则表达式可以完成大部分网站.jpg/.jpeg图片url的匹配，若无法完成匹配，请自行修改
-picurl_list = get_picurl("http://www.woshipm.com/operate/2278926.html",r'(https?|ftp|file)://[-A-Za-z0-9+&@#/%=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|].jpe?g')
+picurl_list = get_picurl(url,r'(https?|ftp|file)://[-A-Za-z0-9+&@#/%=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|].jpe?g')
 for each_picurl in picurl_list:
     #循环打印每张图片url
     print(each_picurl)
     #使用时请将路径替换为本地路径
-    download_pic(each_picurl,"C:\\Users\\问津\\Desktop\\download\\")
+    download_pic(each_picurl,path)
         
