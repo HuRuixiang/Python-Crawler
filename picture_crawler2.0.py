@@ -39,12 +39,16 @@ def download_pic(pic_url,root):
                     f.write(rp.content)
     except:
             print("下载异常")
-
-page_url_list = get_pageurl("http://t66y.com/thread0806.php?fid=8",r'htm_data[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|].html')
-for each_page_url in page_url_list[5:]:
-        picurl_list = get_picurl("http://t66y.com/"+each_page_url,r'(https?|ftp|file)://[-A-Za-z0-9+&@#/%=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|].jpe?g')
+                
+#使用时填上自己的url和下载路径path即可
+#此处正则表达式仅供参考，请结合具体情况进行修改
+url = ""
+path = ""
+page_url_list = get_pageurl(url,r'htm_data[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|].html')
+for each_page_url in page_url_list:
+        picurl_list = get_picurl(url+each_page_url,r'(https?|ftp|file)://[-A-Za-z0-9+&@#/%=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|].jpe?g')
         for each_picurl in picurl_list:
+                #循环打印每张照片url
                 print(each_picurl)
-                path = "C:\\Users\\问津\\Desktop\\download\\"
                 download_pic(each_picurl,path)
         
